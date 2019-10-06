@@ -1,0 +1,33 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: limit-operator
+spec:
+  replicas: 1
+  selector:
+    matchLabels:
+      name: limit-operator
+  template:
+    metadata:
+      labels:
+        name: limit-operator
+    spec:
+      serviceAccountName: limit-operator
+      containers:
+        - name: limit-operator
+          # Replace this with the built image name
+          image: REPLACE_IMAGE
+          command:
+          - limit-operator
+          imagePullPolicy: Always
+          env:
+            - name: WATCH_NAMESPACE
+              valueFrom:
+                fieldRef:
+                  fieldPath: metadata.namespace
+            - name: POD_NAME
+              valueFrom:
+                fieldRef:
+                  fieldPath: metadata.name
+            - name: OPERATOR_NAME
+              value: "limit-operator"
