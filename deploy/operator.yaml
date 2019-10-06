@@ -16,7 +16,7 @@ spec:
       containers:
         - name: limit-operator
           # Replace this with the built image name
-          image: REPLACE_IMAGE
+          image: quay.io/myafk/limit-operator
           command:
           - limit-operator
           imagePullPolicy: Always

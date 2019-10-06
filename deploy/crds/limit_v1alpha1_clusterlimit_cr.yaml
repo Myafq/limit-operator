@@ -2,8 +2,6 @@ apiVersion: limit.myafq.com/v1alpha1
 kind: ClusterLimit
 metadata:
   name: default-limit
-  annotations:
-    limit.myafq.com/unlimited: true
 spec:
   namespaceSelector:
     matchLabels:
@@ -23,3 +21,7 @@ spec:
         cpu: "110m"
         memory: "111Mi"
       type: Container
+    - max:
+        cpu: "2"
+        memory: "2Gi"
+      type: Pod
