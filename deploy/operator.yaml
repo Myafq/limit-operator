@@ -16,10 +16,18 @@ spec:
       containers:
         - name: limit-operator
           # Replace this with the built image name
-          image: quay.io/myafk/limit-operator
+          image: quay.io/myafk/limit-operator:0.1
           command:
           - limit-operator
           imagePullPolicy: Always
+          resources:
+            requests:
+              memory: "25Mi"
+              cpu: "10m"
+            limits:
+              memory: "50Mi"
+              cpu: "20m"
+
           env:
             - name: WATCH_NAMESPACE
               valueFrom:

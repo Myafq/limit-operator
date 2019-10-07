@@ -10,6 +10,17 @@ rules:
   - events
   - limitranges
   - namespaces
+  - pods
+  - configmaps
+  - secrets
+  - services
+  verbs:
+  - '*'
+- apiGroups:
+  - "apps"
+  resources:
+  - replicasets
+  - deployments
   verbs:
   - '*'
 - apiGroups:
