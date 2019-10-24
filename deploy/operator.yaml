@@ -15,8 +15,7 @@ spec:
       serviceAccountName: limit-operator
       containers:
         - name: limit-operator
-          # Replace this with the built image name
-          image: quay.io/myafk/limit-operator:0.1
+          image: quay.io/myafk/limit-operator:0.2
           command:
           - limit-operator
           imagePullPolicy: Always

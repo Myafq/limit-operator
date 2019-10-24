@@ -1,27 +1,27 @@
 apiVersion: limit.myafq.com/v1alpha1
 kind: ClusterLimit
 metadata:
-  name: default-limit
+  name: limited
 spec:
   namespaceSelector:
     matchLabels:
       limit: "limited"
   limitRange:
     limits:
-    - max:
-        cpu: "800m"
+    - type: Container
+      max:
+        cpu: "1"
         memory: "1Gi"
       min:
-        cpu: "100m"
-        memory: "99Mi"
+        cpu: "10m"
+        memory: "10Mi"
       default:
-        cpu: "700m"
-        memory: "900Mi"
+        cpu: "100m"
+        memory: "128Mi"
       defaultRequest:
-        cpu: "110m"
-        memory: "111Mi"
-      type: Container
-    - max:
+        cpu: "100m"
+        memory: "128Mi"
+    - type: Pod
+      max:
         cpu: "2"
         memory: "2Gi"
-      type: Pod
