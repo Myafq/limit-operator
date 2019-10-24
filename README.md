@@ -34,5 +34,5 @@ Then run
 
 ## Create a ClusterLimit
 
-- `kubectl apply -f deploy/examples/keycloak_min.json`
+- `kubectl apply -f examples/default.yaml`
 
